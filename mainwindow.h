@@ -1,7 +1,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "connectwindow.h"
+
 #include <QMainWindow>
+
+#include <QString>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,6 +21,7 @@ public:
 
 private slots:
     void on_actionConnect_triggered();
+    void handleConnectionDetails(const QString &host, const QString &database, const QString &user, const QString &password);
 
 private:
     Ui::MainWindow *ui;

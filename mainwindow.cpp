@@ -1,15 +1,18 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-// Basic
+// for debug
 #include <QDebug>
 #include <QMessageBox>
 
-// DataBase
+// for sql
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QSqlResult>
+
+// basic
+#include <QString>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -35,21 +38,29 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionConnect_triggered()
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
-    db.setHostName("localhost");
-    db.setPort(5432);
-    db.setDatabaseName("cw_sport_db");
-    db.setPassword("sql20230221");
-    db.setUserName("postgres");
+    ConnectWindow *connectWindow = new ConnectWindow(this);
 
-    if(!db.open()) {
+    connect(connectWindow, &ConnectWindow::connectionDetailsEntered, this, &MainWindow::handleConnectionDetails);
+    connect(connectWindow, &ConnectWindow::destroyed, connectWindow, &QObject::deleteLater);
+    connectWindow->show();
 
-        QMessageBox::warning(this, tr("Application"), db.lastError().text());
-        qDebug() << db.connectOptions();
-        return;
-    } else {
-
-        qDebug() << "SUCCESS: The connection was successful!";
-    }
 }
+
+void MainWindow::handleConnectionDetails(const QString &host, const QString &database, const QString &user, const QString &password)
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+    db.setHostName(host);
+    db.setDatabaseName(database);
+    db.setUserName(user);
+    db.setPassword(password);
+
+    if (!db.open()) {
+        QMessageBox::critical(this, "Connection Failed", db.lastError().text());
+    } else {
+        QMessageBox::information(this, "Connection Successful", "Connected to the database successfully!");
+    }
+
+}
+
+
 
