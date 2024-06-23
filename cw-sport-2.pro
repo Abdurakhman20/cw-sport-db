@@ -12,12 +12,14 @@ SOURCES += \
     connectwindow.cpp \
     datamodel.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    sportcomplex.cpp
 
 HEADERS += \
     connectwindow.h \
     datamodel.h \
-    mainwindow.h
+    mainwindow.h \
+    sportcomplex.h
 
 FORMS += \
     connectwindow.ui \
