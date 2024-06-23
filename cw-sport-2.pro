@@ -10,11 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     connectwindow.cpp \
+    datamodel.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     connectwindow.h \
+    datamodel.h \
     mainwindow.h
 
 FORMS += \
