@@ -10,7 +10,7 @@ QSqlError DataModel::initLoad()
 {
     QSqlQuery query(_db);
     QString selectRows = QString(
-                                "SELECT c.id, c.name, c.construction_date, c.capacity, c.working_hours, c.address, c.website, ct.type, cf.financing, c.complex_type_id, c.complex_financing_id "
+                                "SELECT c.id, c.name, c.construction_date, c.capacity, c.working_hours, c.address, c.website, ct.name, cf.name, c.complex_type_id, c.complex_financing_id "
                                 "FROM %1 c LEFT JOIN complex_types ct ON c.complex_type_id = ct.id "
                                 "LEFT JOIN complex_financing cf ON c.complex_financing_id = cf.id "
                                 "ORDER BY c.id DESC FETCH FIRST 20 ROWS ONLY"
@@ -190,8 +190,8 @@ bool DataModel::setData(const QModelIndex &index, const QVariant &value, int rol
     if (col == 7) {
         QSqlQuery query(_db);
 
-        query.prepare("SELECT id FROM complex_types WHERE type = :type");
-        query.bindValue(":type", value.toString());
+        query.prepare("SELECT id FROM complex_types WHERE name = :name");
+        query.bindValue(":name", value.toString());
 
         if (!query.exec()) {
             QWidget *pMainWindow = qobject_cast<QWidget *>(this->parent());
@@ -206,7 +206,7 @@ bool DataModel::setData(const QModelIndex &index, const QVariant &value, int rol
         } else {
             QSqlQuery query(_db);
 
-            query.prepare("INSERT INTO complex_types(type) VALUES (:complex_type_id) RETURNING id");
+            query.prepare("INSERT INTO complex_types(name) VALUES (:complex_type_id) RETURNING id");
             query.bindValue(":complex_type_id", value.toString());
 
             if (!query.exec()) {
@@ -229,8 +229,8 @@ bool DataModel::setData(const QModelIndex &index, const QVariant &value, int rol
     if (col == 8) {
         QSqlQuery query(_db);
 
-        query.prepare("SELECT id  FROM complex_financing WHERE financing = :financing");
-        query.bindValue(":financing", value.toString());
+        query.prepare("SELECT id  FROM complex_financing WHERE name = :name");
+        query.bindValue(":name", value.toString());
 
         if (!query.exec()) {
             QWidget *pMainWindow = qobject_cast<QWidget *>(this->parent());
@@ -245,7 +245,7 @@ bool DataModel::setData(const QModelIndex &index, const QVariant &value, int rol
         } else {
             QSqlQuery query(_db);
 
-            query.prepare("INSERT INTO complex_financing(financing) VALUES (:complex_financing_id) RETURNING id");
+            query.prepare("INSERT INTO complex_financing(name) VALUES (:complex_financing_id) RETURNING id");
             query.bindValue(":complex_financing_id", value.toString());
 
             if (!query.exec()) {
@@ -379,7 +379,7 @@ void DataModel::fetchMore(const QModelIndex &pos)
     QSqlQuery query(_db);
     // Делаем запрос новых 20 строк со смещением в 20 имеющихся строк
     QString selectRows = QString(
-        "SELECT c.id, c.name, c.construction_date, c.capacity, c.working_hours, c.address, c.website, ct.type, cf.financing, c.complex_type_id, c.complex_financing_id "
+        "SELECT c.id, c.name, c.construction_date, c.capacity, c.working_hours, c.address, c.website, ct.name, cf.name, c.complex_type_id, c.complex_financing_id "
         "FROM %1 c LEFT JOIN complex_types ct ON c.complex_type_id = ct.id "
         "LEFT JOIN complex_financing cf ON c.complex_financing_id = cf.id "
         "ORDER BY c.id DESC OFFSET %2 ROWS FETCH FIRST 20 ROWS ONLY"

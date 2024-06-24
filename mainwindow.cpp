@@ -38,7 +38,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionConnect_triggered()
 {
-    ConnectWindow *connectWindow = new ConnectWindow(this);
+    ConnectWindow *connectWindow = new ConnectWindow;
 
     connect(connectWindow, &ConnectWindow::connectionDetailsEntered, this, &MainWindow::handleConnectionDetails);
     connect(connectWindow, &ConnectWindow::destroyed, connectWindow, &QObject::deleteLater);

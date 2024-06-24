@@ -40,7 +40,25 @@
     </property>
     <addaction name="actionConnect"/>
    </widget>
+   <widget class="QMenu" name="menuTables">
+    <property name="title">
+     <string>Tables</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuLanguage">
+    <property name="title">
+     <string>Language</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuAbout_Program">
+    <property name="title">
+     <string>About Program</string>
+    </property>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuTables"/>
+   <addaction name="menuLanguage"/>
+   <addaction name="menuAbout_Program"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionConnect">
