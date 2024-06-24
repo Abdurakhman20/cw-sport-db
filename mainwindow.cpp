@@ -46,10 +46,11 @@ void MainWindow::on_actionConnect_triggered()
 
 }
 
-void MainWindow::handleConnectionDetails(const QString &host, const QString &database, const QString &user, const QString &password)
+void MainWindow::handleConnectionDetails(const QString &host, const int &port, const QString &database, const QString &user, const QString &password)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
     db.setHostName(host);
+    db.setPort(port);
     db.setDatabaseName(database);
     db.setUserName(user);
     db.setPassword(password);

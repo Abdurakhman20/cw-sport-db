@@ -21,7 +21,7 @@ public:
 
 private slots:
     void on_actionConnect_triggered();
-    void handleConnectionDetails(const QString &host, const QString &database, const QString &user, const QString &password);
+    void handleConnectionDetails(const QString &host, const int &port, const QString &database, const QString &user, const QString &password);
 
 private:
     Ui::MainWindow *ui;

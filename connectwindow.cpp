@@ -18,11 +18,12 @@ ConnectWindow::~ConnectWindow()
 void ConnectWindow::on_connectPushButton_clicked()
 {
     QString host = ui->hostLineEdit->text();
+    int port = ui->portLineEdit->text().toInt();
     QString database = ui->databaseLineEdit->text();
     QString user = ui->userLineEdit->text();
     QString password = ui->passwordLineEdit->text();
 
-    emit connectionDetailsEntered(host, database, user, password);
+    emit connectionDetailsEntered(host, port, database, user, password);
 
     close();
 

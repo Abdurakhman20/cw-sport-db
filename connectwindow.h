@@ -16,7 +16,7 @@ public:
     ~ConnectWindow();
 
 signals:
-    void connectionDetailsEntered(const QString &host, const QString &database, const QString &user, const QString &password);
+    void connectionDetailsEntered(const QString &host, const int &port, const QString &database, const QString &user, const QString &password);
 
 private slots:
     void on_connectPushButton_clicked();

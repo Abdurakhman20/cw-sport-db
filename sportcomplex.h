@@ -13,21 +13,29 @@ private:
     QString mConstructionDate;
     int mCapacity;
     QString mWorkingHours;
-    int mAddressID;
-    int mWebsiteID;
+    QString mAddress;
+    QString mWebsite;
+    QString mComplexType;
+    QString mComplexFinancing;
+    int mComplexTypeID;
+    int mComplexFinancingID;
 
 public:
     //! Конструктор класса
     SportComplex();
     //! Значения конструктора класса
     SportComplex(
-            const int id,
-            const QString name,
-            const QString constructionDate,
-            const int capacity,
-            const QString workingHours,
-            const int addressID,
-            const int websiteID
+            const int mID,
+            const QString mName,
+            const QString mConstructionDate,
+            const int mCapacity,
+            const QString mWorkingHours,
+            const QString mAddress,
+            const QString mWebsite,
+            const QString mComplexType,
+            const QString mComplexFinancing,
+            const int mComplexTypeID,
+            const int mComplexFinancingID
     );
 
     /// Устанавливаем Функции setters
@@ -47,11 +55,23 @@ public:
     /// setter working hours
     void setWorkingHours(const QString workingHours);
 
-    /// setter address id
-    void setAddressID(const int addressID);
+    /// setter address
+    void setAddress(const QString address);
 
-    /// setter website id
-    void setWebsiteID(const int websiteID);
+    /// setter website
+    void setWebsite(const QString website);
+
+    /// setter complex type
+    void setComplexType(const QString complexType);
+
+    /// setter complex finansing
+    void setComplexFinancing(const QString complexFinancing);
+
+    /// setter complex type id
+    void setComplexTypeID(const int complexTypeID);
+
+    /// setter complex financing id
+    void setComplexFinancingID(const int complexFinancingID);
 
     /// Устанавливаем функции getters
 
@@ -70,11 +90,23 @@ public:
     /// getter working hours
     QString getWorkingHours() const;
 
-    /// getter address id
-    int getAddressID() const;
+    /// getter address
+    QString getAddress() const;
 
-    /// getter website id
-    int getWebsiteID() const;
+    /// getter website
+    QString getWebsite() const;
+
+    /// getter complex type
+    QString getComplexType() const;
+
+    /// getter complex financing
+    QString getComplexFinancing() const;
+
+    /// getter complex type id
+    int getComplexTypeID() const;
+
+    /// getter complex financing id
+    int getComplexFinancingID() const;
 
 };
 Q_DECLARE_METATYPE(SportComplex);
