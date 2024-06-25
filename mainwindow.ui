@@ -52,7 +52,7 @@
    </widget>
    <widget class="QMenu" name="menuTables">
     <property name="title">
-     <string>Tables</string>
+     <string>Additional Tables</string>
     </property>
     <addaction name="actionComplex_Types"/>
     <addaction name="actionComplex_Financing"/>
@@ -64,8 +64,10 @@
    </widget>
    <widget class="QMenu" name="menuAbout_Program">
     <property name="title">
-     <string>About Program</string>
+     <string>Information</string>
     </property>
+    <addaction name="actionAbout_the_developer"/>
+    <addaction name="actionAbout_Qt"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuTables"/>
@@ -86,6 +88,16 @@
   <action name="actionComplex_Financing">
    <property name="text">
     <string>Complex Financing</string>
+   </property>
+  </action>
+  <action name="actionAbout_the_developer">
+   <property name="text">
+    <string>About the developer</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="text">
+    <string>About Qt</string>
    </property>
   </action>
  </widget>

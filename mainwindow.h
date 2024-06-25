@@ -67,6 +67,8 @@ private slots:
 
     void on_actionComplex_Financing_triggered();
 
+    void on_actionAbout_the_developer_triggered();
+
 private:
     Ui::MainWindow *ui;
 

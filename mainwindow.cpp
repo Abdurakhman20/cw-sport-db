@@ -34,6 +34,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tableView->setSortingEnabled(true);
 
+    connect(ui->actionAbout_Qt, &QAction::triggered,
+        qApp, &QApplication::aboutQt);
+
     qApp->installTranslator(&appTranslator);
     qApp->installTranslator(&qtTranslator);
 
@@ -296,4 +299,14 @@ void MainWindow::resetFind()
     }
 }
 
+
+
+void MainWindow::on_actionAbout_the_developer_triggered()
+{
+    QMessageBox::about(this, tr("About the developer"),
+            tr("Developer: Usmanov Abdurakhman Khasmagamedovich\n"
+            "E-mail: ausmanov706@gmail.com\n"
+            "Faculty: Information Systems and Technologies\n"
+            "Group: ICTMS-3-5"));
+}
 
