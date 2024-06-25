@@ -9,7 +9,9 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    additionaltable.cpp \
     additionaltableitem.cpp \
+    additionaltablemodel.cpp \
     connectwindow.cpp \
     datamodel.cpp \
     main.cpp \
@@ -17,13 +19,16 @@ SOURCES += \
     sportcomplex.cpp
 
 HEADERS += \
+    additionaltable.h \
     additionaltableitem.h \
+    additionaltablemodel.h \
     connectwindow.h \
     datamodel.h \
     mainwindow.h \
     sportcomplex.h
 
 FORMS += \
+    additionaltable.ui \
     connectwindow.ui \
     mainwindow.ui
 
