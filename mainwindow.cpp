@@ -310,3 +310,26 @@ void MainWindow::on_actionAbout_the_developer_triggered()
             "Group: ICTMS-3-5"));
 }
 
+
+void MainWindow::on_actionDisconnect_triggered()
+{
+
+    if (db.isOpen()) {
+            db.close();
+            qDebug() << "Disconnected from database.";
+
+            if (dModel) {
+                delete dModel;
+                dModel = nullptr;
+            }
+
+            proxyModel->setSourceModel(nullptr);
+            ui->tableView->setModel(nullptr);
+
+            ui->menuTables->setDisabled(true);
+            QMessageBox::information(this, tr("Disconnected"), tr("You have been disconnected from the database."));
+        } else {
+            QMessageBox::warning(this, tr("Warning"), tr("No active connection to disconnect."));
+        }
+}
+

@@ -70,6 +70,8 @@ private slots:
 
     void on_actionAbout_the_developer_triggered();
 
+    void on_actionDisconnect_triggered();
+
 private:
     Ui::MainWindow *ui;
 

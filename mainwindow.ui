@@ -49,6 +49,7 @@
      <string>File</string>
     </property>
     <addaction name="actionConnect"/>
+    <addaction name="actionDisconnect"/>
    </widget>
    <widget class="QMenu" name="menuTables">
     <property name="title">
@@ -98,6 +99,11 @@
   <action name="actionAbout_Qt">
    <property name="text">
     <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionDisconnect">
+   <property name="text">
+    <string>Disconnect</string>
    </property>
   </action>
  </widget>
