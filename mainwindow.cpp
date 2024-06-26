@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
     qApp->installTranslator(&appTranslator);
     qApp->installTranslator(&qtTranslator);
 
-    qmPath =  + "../cw-sport_2/translations";
+    qmPath =  + "../cw-sport-2/translations";
 
     createLanguageMenu();
 

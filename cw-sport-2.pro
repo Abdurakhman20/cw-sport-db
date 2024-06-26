@@ -34,7 +34,16 @@ FORMS += \
     connectwindow.ui \
     mainwindow.ui
 
+TRANSLATIONS += translations/cw-sport-2_ru_RU.ts \
+                translations/cw-sport-2_de_DE.ts \
+                translations/cw-sport-2_en_EN.ts
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    translations/cw-sport-2_de_DE.ts \
+    translations/cw-sport-2_en_EN.ts \
+    translations/cw-sport-2_ru_RU.ts
