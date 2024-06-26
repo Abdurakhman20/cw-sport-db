@@ -14,16 +14,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     proxyModel = new QSortFilterProxyModel(ui->tableView);
 
-    /*
-     *  Delegates
-    */
+    DataDelegate *dateDelegate =
+        new DataDelegate(this, QRegularExpression("[0-9]{4}-[0-1][0-9]-[0-3][0-9]"));
+    DataDelegate *timeDelegate =
+        new DataDelegate(this, QRegularExpression("\\d{1,2}\\.\\d{2}-\\d{1,2}\\.\\d{2}"));
 
     ui->tableView->setAttribute(Qt::WA_DeleteOnClose);
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
 
-    /*
-     * Set Delegates -> (-_-)
-     */
+    ui->tableView->setItemDelegateForColumn(2, dateDelegate);
+    ui->tableView->setItemDelegateForColumn(4, timeDelegate);
 
     ui->tableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
     ui->tableView->dragDropOverwriteMode();

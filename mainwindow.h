@@ -23,6 +23,7 @@
 #include <QSqlTableModel>
 
 #include <datamodel.h>
+#include <datadelegate.h>
 #include <additionaltable.h>
 #include <connectwindow.h>
 

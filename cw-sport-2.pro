@@ -13,6 +13,7 @@ SOURCES += \
     additionaltableitem.cpp \
     additionaltablemodel.cpp \
     connectwindow.cpp \
+    datadelegate.cpp \
     datamodel.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     additionaltableitem.h \
     additionaltablemodel.h \
     connectwindow.h \
+    datadelegate.h \
     datamodel.h \
     mainwindow.h \
     sportcomplex.h
